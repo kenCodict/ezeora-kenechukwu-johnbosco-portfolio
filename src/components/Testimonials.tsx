@@ -1,7 +1,9 @@
-import p1 from '../assets/p1.jpg'
-import p2 from '../assets/p2.jpg'
-import p3 from '../assets/p3.jpg'
-import p4 from '../assets/p4.jpg'
+import p1 from '../assets/avatar.png'
+import p2 from '../assets/avatar.png'
+import p3 from '../assets/chekwube.jpg'
+import p4 from '../assets/peace.jpg'
+import p5 from '../assets/avatar.jpg'
+import p6 from '../assets/onyinye.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
@@ -28,25 +30,25 @@ const TestimonialData = [
   {
     id:3,
     image:p3,
-    Name: "Promise",
+    Name: "Ngwu Chekwube Cornelius",
     review: "Very helpful when building my website, I now have my ecommerce store built from scratch",
   },
   {
     id:4,
     image:p4,
-    Name: "Chidera",
+    Name: "Peace Iwuji",
     review: "Without doubt one of the most talented programmers out there.  I always go back to Ezeora Kenechukwu when I'm out of my depth and he's never failed to deliver what I ask for.   Smart, trustworthy and professional.   You won't be disappointed.",
   },
   {
     id:5,
-    image:p4,
+    image:p5,
     Name: "Emeka Ibe",
     review: "Ezeora Kenechukwu is awesome, delivers exactly what you want and is a great guy as well, thanks for all your hard work on my website",
   },
   {
-    id:7,
-    image:p4,
-    Name: "Emeka Ibe",
+    id:6,
+    image:p6,
+    Name: "Onyebuchi Onyinyechi Peace",
     review: "Fantastic service and great guy. We recommend to anyone who needs a website or web services.",
   },
 ]
