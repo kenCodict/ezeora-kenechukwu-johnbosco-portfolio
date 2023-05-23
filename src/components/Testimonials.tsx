@@ -1,11 +1,10 @@
-import Container from "./Container"
 import p1 from '../assets/p1.jpg'
 import p2 from '../assets/p2.jpg'
 import p3 from '../assets/p3.jpg'
 import p4 from '../assets/p4.jpg'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -52,14 +51,14 @@ const TestimonialData = [
   },
 ]
 
-interface SingleTestimonialProps {
-   item: {
-    id: number;
-    image: string;
-    Name: string;
-    review: string;
-   }
-}
+// interface SingleTestimonialProps {
+//    item: {
+//     id: number;
+//     image: string;
+//     Name: string;
+//     review: string;
+//    }
+// }
 
 
 const Testimonials = () => {
@@ -68,29 +67,22 @@ const Testimonials = () => {
     <div id="testimonials" className="max-h-fit mb-10 mt-[8rem]">
       <h5 className="text-center text-[rgba(255,255,255, 0.6)]">Reviews From Clients</h5>
       <h2 className="text-center text-[#4db5ff] mb-[3rem]">Testimonials</h2>
-      <Swiper
-      // install Swiper modules
-      modules={[ Pagination,  ]}
-      spaceBetween={50}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+      <Carousel
       className=" mx-auto w-[70%] sm:w-[60%] lg:w-[40%]"
     >
 
  {
           TestimonialData.map(({id, image, Name, review}) => (
-            <SwiperSlide className="testimonial color-bg-variant text-center p-8 rounded-3xl select-none pb-16" key={id}>
+            <div className="testimonial color-bg-variant text-center p-8 rounded-3xl select-none pb-16" key={id}>
       <div className="client_avatar w-16 aspect-square overflow-hidden rounded-full mt-0 mx-auto mb-4 border-[0.4rem] border-solid border-[rgba(77,181,255,0.4)] ">
         <img src={image} alt="" className="w-full h-full object-cover object-center" />
       </div>
       <h5 className="">{Name}</h5>
       <small className="client_review .color-light font-medium block mt-[0.8rem] mx-auto mb-0">{review}</small>
-    </SwiperSlide>
+    </div>
           ))
         }
-    </Swiper>
+    </Carousel>
 
 
 
