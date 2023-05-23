@@ -1,5 +1,5 @@
-import p1 from '../assets/avatar.png'
-import p2 from '../assets/avatar.png'
+import p1 from '../assets/avatar.jpg'
+import p2 from '../assets/avatar.jpg'
 import p3 from '../assets/chekwube.jpg'
 import p4 from '../assets/peace.jpg'
 import p5 from '../assets/avatar.jpg'
