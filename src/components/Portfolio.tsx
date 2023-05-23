@@ -4,7 +4,7 @@ import port2 from "../assets/asr.jpg";
 import port3 from "../assets/protrade.jpg";
 import port4 from "../assets/weatherforcast.jpg";
 import port5 from "../assets/blog.jpg";
-import port6 from "../assets/react.svg";
+
 
 
 const portfolioData = [

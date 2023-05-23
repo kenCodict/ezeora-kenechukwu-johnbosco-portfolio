@@ -1,6 +1,6 @@
 import { FaEnvelopeSquare, FaFacebookMessenger, FaWhatsapp } from "react-icons/fa"
 import Container from "./Container"
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useEffect, useState} from 'react';
 import emailjs from '@emailjs/browser';
 const contactData = [
   {
@@ -25,10 +25,17 @@ const contactData = [
     link: "https://api.whatsapp.com/send?phone+2347032286472",
   },
 ]
-const Contact = () => {
-  const form = React.useRef<string | HTMLFormElement | undefined>();
-  const [data, setData] = useState<string>('')
 
+
+// interface ExampleProps {
+//   buttonRef: Ref<HTMLFormElement>
+// }
+
+const Contact = () => {
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const [data, setData] = useState<string>('')
+  const [formValue, setFormValue] = useState({name:'', email:'', message:''})
   useEffect(()=> {
     if (data) {
       setTimeout(() => {
@@ -37,21 +44,35 @@ const Contact = () => {
     }
   },[data])
 
-
+const handleChange = (e: React.SyntheticEvent):void => {
+  const {target} = e
+  const targ = target as HTMLInputElement
+  setFormValue({...formValue, [targ.name]: targ.value})
+}
 const sendEmail = async (e:React.SyntheticEvent) => {
   e.preventDefault();
 
+
+// function getFormData(object:{name:string, email:string, message:string}) {
+//   const formData = new FormData();
+//    formData.append('name', object['name']);
+//    formData.append('email', object['email']);
+//    formData.append('message', object['message']);
+//   return formData;
+// }
  try {
-  const result = await emailjs.sendForm('service_o1u3tia', 'template_ppf2kkf', form.current, 'CjdVA5-nx01odesRO')
-  
+  const result = await emailjs.sendForm('service_o1u3tia', 'template_ppf2kkf',e.currentTarget.outerHTML , 'CjdVA5-nx01odesRO')
+
   console.log(result.text);
   setData(result.text)
-  e.target.reset();
+  const {target} = e;
+  const tarrrr = target as HTMLFormElement
+  tarrrr.reset();
  } catch (error) {
-  setData(error.text)
+  setData(String(error))
   console.log(error);
  }
-  
+
 };
 
   return (
@@ -71,11 +92,12 @@ const sendEmail = async (e:React.SyntheticEvent) => {
           ))
          }
         </div>
-        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-5 h-fit">
+        <form  ref={form} onSubmit={sendEmail} className="flex flex-col gap-5 h-fit">
          {data &&  <p className="text-center text-white font-bolder text-2xl">{data}</p>}
-          <input type="text" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" name="name" placeholder="Your Full Name" required />
-          <input type="email" name="email" id="email" placeholder="Your Email" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" required />
-          <textarea name="message" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" id="message" rows={7} placeholder="Your Message" required></textarea>
+          <input type="text" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" name="name" placeholder="Your Full Name" required onChange={handleChange}/>
+          <input type="email" name="email" id="email" placeholder="Your Email" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" required onChange={handleChange} />
+          <textarea name="message" className="w-full p-6 rounded-md bg-transparent border-2 border-solid border-[rgba(77,181,255,0.4)] resize-none color-white" id="message" rows={7} placeholder="Your Message" required onChange={handleChange}></textarea>
+
           <button type="submit" className="btn btn-primary" id="submit">Send Message</button>
         </form>
       </Container>
