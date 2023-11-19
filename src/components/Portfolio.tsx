@@ -16,20 +16,6 @@ const portfolioData = [
     image:port1,
   },
   {
-    id:2,
-    title:"Investment Website",
-    github:"https://github.com/kenCodict",
-    demo:"https://asr-capital.com",
-    image:port2,
-  },
-  {
-    id:3,
-    title:"ASR Capital Investment",
-    github:"https://github.com/kenCodict",
-    demo:"https://protrades.live",
-    image:port3,
-  },
-  {
     id:4,
     title:"Weather Forcast App",
     github:"https://github.com/kenCodict",
