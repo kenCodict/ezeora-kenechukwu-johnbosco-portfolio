@@ -1,7 +1,5 @@
 import Container from "./Container"
 import port1 from "../assets/ngwf.jpg";
-import port2 from "../assets/asr.jpg";
-import port3 from "../assets/protrade.jpg";
 import port4 from "../assets/weatherforcast.jpg";
 import port5 from "../assets/blog.jpg";
 
